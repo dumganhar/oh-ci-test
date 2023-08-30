@@ -77,6 +77,9 @@ jobs:
           node -v
           npm -v
           java --version
+          echo "=============== list files in oh sdk ==============="
+          cd $HOME/openharmony
+          ls -l
           echo "=============== SET NPM OH REGISTRY ==============="
           npm config set @ohos:registry=https://repo.harmonyos.com/npm/
           echo "=============== UPDATE local.properties ==============="
