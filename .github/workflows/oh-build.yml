@@ -15,11 +15,15 @@ on:
     types: [published]
 
 jobs:
-  compile_render_service:
-    name: "RenderService"
+  compile_oh:
+    name: "OpenHarmony"
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
       - name: Compile for OpenHarmony
         run: |
           which node
@@ -37,6 +41,9 @@ jobs:
           ./ohsdkmgr list
           cd ../..
           npm config set @ohos:registry=https://repo.harmonyos.com/npm/
+          echo "sdk.dir=$(pwd)/sdk/openharmony" > local.properties
+          echo "nodejs.dir=/usr/local/bin" > local.properties
+          echo "hwsdk.dir=$(pwd)/sdk" > local.properties
           ./hvigorw --mode module -p module=entry@default -p product=default -p debuggable=true assembleHap
 
           
