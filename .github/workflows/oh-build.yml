@@ -61,7 +61,10 @@ jobs:
             unzip commandline-tools-linux.zip -d $HOME/openharmony
             cd $HOME/openharmony
             ls -l
-            cd command-line-tools/bin
+            cd command-line-tools
+            echo "=============== PATCHING sdkmanager/bin/sdkmgr file ==============="
+            sed -i "s@-Dfile.encoding=UTF-8@-Dfile.encoding=UTF-8 -Duser.country=CN@g" ./sdkmanager/bin/sdkmgr
+            cd bin
             ./sdkmgr list
             echo "=============== INSTALL HOS toolchains:9 ==============="
             ./sdkmgr install toolchains:9 --accept-license
