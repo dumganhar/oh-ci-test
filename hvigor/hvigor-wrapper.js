@@ -253,7 +253,7 @@ j.hasNpmPackInPaths = function (e, t) {
             a = $,
             l = h.default,
             f = u(E.default);
-        e.PNPM_VERSION = "7.5.0";
+        e.PNPM_VERSION = "8.7.0";
         e.checkNpmConifg = function () {
             console.log(`cjh HVIGOR_PROJECT_ROOT_DIR:${i.HVIGOR_PROJECT_ROOT_DIR}`);
             const e = c.resolve(i.HVIGOR_PROJECT_ROOT_DIR, ".npmrc"),
