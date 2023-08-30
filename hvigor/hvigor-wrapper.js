@@ -191,6 +191,7 @@ const U = h.default,
     K = $,
     q = V(D.default);
 j.hasNpmPackInPaths = function (e, t) {
+    console.log(`cjh hasNpmPackInPaths: ${e}, ${t}`);
         try {
             return require.resolve(e, {
                 paths: [...t]
@@ -252,7 +253,9 @@ j.hasNpmPackInPaths = function (e, t) {
             a = $,
             l = h.default,
             f = u(E.default);
-        e.PNPM_VERSION = "7.30.0", e.checkNpmConifg = function () {
+        e.PNPM_VERSION = "7.30.0";
+        e.checkNpmConifg = function () {
+            console.log(`cjh HVIGOR_PROJECT_ROOT_DIR:${i.HVIGOR_PROJECT_ROOT_DIR}`);
             const e = c.resolve(i.HVIGOR_PROJECT_ROOT_DIR, ".npmrc"),
                 t = c.resolve(f.default.homedir(), ".npmrc");
             if ((0, s.isFileExists)(e) || (0, s.isFileExists)(t)) return;
@@ -266,10 +269,15 @@ j.hasNpmPackInPaths = function (e, t) {
         }, e.environmentHandler = function () {
             process.env["npm_config_update-notifier"] = "false"
         }, e.isPnpmAvailable = function () {
-            return !!o.existsSync(i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH) && (0, s.hasNpmPackInPaths)("pnpm", [i.HVIGOR_WRAPPER_TOOLS_HOME])
+            const ret = !!o.existsSync(i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH) && (0, s.hasNpmPackInPaths)("pnpm", [i.HVIGOR_WRAPPER_TOOLS_HOME]);
+            console.log(`cjh HVIGOR_WRAPPER_PNPM_SCRIPT_PATH:${i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH}`);
+            console.log(`cjh HVIGOR_WRAPPER_TOOLS_HOME:${i.HVIGOR_WRAPPER_TOOLS_HOME}`);
+            console.log(`cjh isPnpmAvailable return: ${ret}`);
+            return ret;
         }, e.executeInstallPnpm = function () {
             (0, a.logInfoPrintConsole)(`Installing pnpm@${e.PNPM_VERSION}...`);
             const t = (0, s.getNpmPath)();
+            console.log(`cjh getNpmPath: ${t}`);
             ! function () {
                 const t = c.resolve(i.HVIGOR_WRAPPER_TOOLS_HOME, i.DEFAULT_PACKAGE_JSON);
                 try {
@@ -5641,7 +5649,7 @@ var Ff = Y.executeInstallHvigor = function () {
     }! function () {
         const e = ["config", "set", "store-dir", lf.HVIGOR_PNPM_STORE_PATH];
         (0, ff.executeCommand)(lf.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH, e, Cf)
-    }(), (0, ff.executeCommand)(lf.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH, ["install", "--no-frozen-lockfile"], Cf)
+    }(), (0, ff.executeCommand)(lf.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH, ["install"], Cf)
 };
 
 function gf() {

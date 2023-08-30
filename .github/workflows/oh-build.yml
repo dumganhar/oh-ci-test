@@ -46,13 +46,13 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 7
 
       - if: ${{ steps.cache-oh-sdk.outputs.cache-hit != 'true' }}
-        name: List the state of oh sdk
+        name: No Cache found, install oh sdk
         continue-on-error: false
         run: |
           if [ ! -d "$HOME/openharmony" ]; then
@@ -77,6 +77,7 @@ jobs:
           node -v
           npm -v
           java --version
+          npm install pnpm@7.30.0
           echo "=============== list files in oh sdk ($HOME/openharmony) ==============="
           pushd $HOME/openharmony
           ls -l
