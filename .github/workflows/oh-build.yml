@@ -33,11 +33,11 @@ jobs:
           npm -v
           java --version
           curl -o ohcommandline-tools-linux.zip "https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/94/v3/YAvJB7RcQg6sOu4z0eL0-g/ohcommandline-tools-linux-2.0.0.2.zip?HW-CC-KV=V1&HW-CC-Date=20230621T074901Z&HW-CC-Expire=315360000&HW-CC-Sign=8A0965E3B37FBA75D7FB8593DFE5B6537F4EA698467F3D0B5667D8AD360F7ACA"
-          unzip ohcommandline-tools-linux.zip
+          unzip ohcommandline-tools-linux.zip > /dev/null
           ls -l
           cd oh-command-line-tools/bin
           ./ohsdkmgr list
-          ./ohsdkmgr install ets:9 js:9 native:9 toolchains:9 --accept-license
+          ./ohsdkmgr install ets:9 js:9 native:9 toolchains:9 --accept-license > /dev/null
           ./ohsdkmgr list
           cd ../..
           npm config set @ohos:registry=https://repo.harmonyos.com/npm/
