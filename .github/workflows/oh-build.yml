@@ -49,7 +49,7 @@ jobs:
           ls -l
           cd oh-command-line-tools/bin
           ./ohsdkmgr list
-          ./ohsdkmgr install ets:9 js:9 native:9 toolchains:9 --accept-license > /dev/null
+          ./ohsdkmgr install ets:9 js:9 native:9 toolchains:9 --accept-license
           ./ohsdkmgr list
           cd ../..
           npm config set @ohos:registry=https://repo.harmonyos.com/npm/
