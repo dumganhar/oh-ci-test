@@ -6,13 +6,6 @@ on:
       - '**'
     tags-ignore:
       - '**'
-    paths:
-      - '.github/workflows/**'
-  pull_request:
-    paths:
-      - '.github/workflows/**'
-  release:
-    types: [published]
 
 jobs:
   compile_oh:
