@@ -5650,7 +5650,7 @@ var Ff = Y.executeInstallHvigor = function () {
     }! function () {
         const e = ["config", "set", "store-dir", lf.HVIGOR_PNPM_STORE_PATH];
         (0, ff.executeCommand)(lf.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH, e, Cf)
-    }(), (0, ff.executeCommand)(lf.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH, ["install"], Cf)
+    }(), (0, ff.executeCommand)(lf.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH, ["install", "--frozen-lockfile"], Cf) //cjh
 };
 
 function gf() {
