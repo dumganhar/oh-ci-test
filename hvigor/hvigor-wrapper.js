@@ -122,7 +122,24 @@ I.hash = function (e, t = "md5") {
             o = r(E.default),
             i = _,
             s = I;
-        e.HVIGOR_ENGINE_PACKAGE_NAME = "@ohos/hvigor", e.PNPM_TOOL = (0, i.isWindows)() ? "pnpm.cmd" : "pnpm", e.NPM_TOOL = (0, i.isWindows)() ? "npm.cmd" : "npm", e.HVIGOR = "hvigor", e.PNPM = "pnpm", e.DEFAULT_HVIGOR_CONFIG_JSON_FILE_NAME = "hvigor-config.json5", e.DEFAULT_PACKAGE_JSON = "package.json", e.HVIGOR_USER_HOME = u.resolve(o.homedir(), ".hvigor"), e.HVIGOR_WRAPPER_TOOLS_HOME = u.resolve(e.HVIGOR_USER_HOME, "wrapper", "tools"), e.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH = u.resolve(e.HVIGOR_WRAPPER_TOOLS_HOME, "node_modules", ".bin", e.PNPM_TOOL), e.HVIGOR_PNPM_STORE_PATH = u.resolve(e.HVIGOR_USER_HOME, "caches"), e.HVIGOR_PROJECT_CACHES_HOME = u.resolve(e.HVIGOR_USER_HOME, "project_caches"), e.HVIGOR_PROJECT_ROOT_DIR = process.cwd(), e.HVIGOR_PROJECT_NAME = u.basename((0, s.hash)(e.HVIGOR_PROJECT_ROOT_DIR)), e.HVIGOR_PROJECT_WRAPPER_HOME = u.resolve(e.HVIGOR_PROJECT_ROOT_DIR, e.HVIGOR), e.HVIGOR_PROJECT_DEPENDENCIES_HOME = u.resolve(e.HVIGOR_PROJECT_CACHES_HOME, e.HVIGOR_PROJECT_NAME, "workspace"), e.HVIGOR_PROJECT_DEPENDENCY_PACKAGE_JSON_PATH = u.resolve(e.HVIGOR_PROJECT_DEPENDENCIES_HOME, e.DEFAULT_PACKAGE_JSON), e.HVIGOR_BOOT_JS_FILE_PATH = u.resolve(e.HVIGOR_PROJECT_DEPENDENCIES_HOME, "node_modules", "@ohos", "hvigor", "bin", "hvigor.js")
+        e.HVIGOR_ENGINE_PACKAGE_NAME = "@ohos/hvigor";
+        e.PNPM_TOOL = (0, i.isWindows)() ? "pnpm.cmd" : "pnpm";
+        e.NPM_TOOL = (0, i.isWindows)() ? "npm.cmd" : "npm";
+        e.HVIGOR = "hvigor";
+        e.PNPM = "pnpm";
+        e.DEFAULT_HVIGOR_CONFIG_JSON_FILE_NAME = "hvigor-config.json5";
+        e.DEFAULT_PACKAGE_JSON = "package.json";
+        e.HVIGOR_USER_HOME = u.resolve(o.homedir(), ".hvigor");
+        e.HVIGOR_WRAPPER_TOOLS_HOME = u.resolve(e.HVIGOR_USER_HOME, "wrapper", "tools");
+        e.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH = u.resolve(e.HVIGOR_WRAPPER_TOOLS_HOME, "node_modules", ".bin", e.PNPM_TOOL);
+        e.HVIGOR_PNPM_STORE_PATH = u.resolve(e.HVIGOR_USER_HOME, "caches");
+        e.HVIGOR_PROJECT_CACHES_HOME = u.resolve(e.HVIGOR_USER_HOME, "project_caches");
+        e.HVIGOR_PROJECT_ROOT_DIR = process.cwd();
+        e.HVIGOR_PROJECT_NAME = u.basename((0, s.hash)(e.HVIGOR_PROJECT_ROOT_DIR));
+        e.HVIGOR_PROJECT_WRAPPER_HOME = u.resolve(e.HVIGOR_PROJECT_ROOT_DIR, e.HVIGOR);
+        e.HVIGOR_PROJECT_DEPENDENCIES_HOME = u.resolve(e.HVIGOR_PROJECT_CACHES_HOME, e.HVIGOR_PROJECT_NAME, "workspace");
+        e.HVIGOR_PROJECT_DEPENDENCY_PACKAGE_JSON_PATH = u.resolve(e.HVIGOR_PROJECT_DEPENDENCIES_HOME, e.DEFAULT_PACKAGE_JSON);
+        e.HVIGOR_BOOT_JS_FILE_PATH = u.resolve(e.HVIGOR_PROJECT_DEPENDENCIES_HOME, "node_modules", "@ohos", "hvigor", "bin", "hvigor.js")
     }(b);
 var j = {},
     $ = {};
