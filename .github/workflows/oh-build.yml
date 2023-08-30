@@ -33,7 +33,7 @@ jobs:
         id: cache-oh-sdk
         uses: actions/cache@v3
         env:
-          cache-name: cache-oh-sdk
+          cache-name: cache-oh-sdk-2
         with:
           path: ${{ steps.oh-sdk-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-build-${{ env.cache-name }}
@@ -44,12 +44,12 @@ jobs:
           echo "{\"name\": \"tests\",\"lockfileVersion\": 3,\"requires\": true,\"packages\": {}}" > package-lock.json
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 14
           cache: 'npm'
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 7
 
       - if: ${{ steps.cache-oh-sdk.outputs.cache-hit != 'true' }}
         name: No Cache found, install oh sdk
@@ -57,16 +57,24 @@ jobs:
         run: |
           if [ ! -d "$HOME/openharmony" ]; then
             mkdir -p $HOME/openharmony
-            curl -o ohcommandline-tools-linux.zip "https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/94/v3/YAvJB7RcQg6sOu4z0eL0-g/ohcommandline-tools-linux-2.0.0.2.zip?HW-CC-KV=V1&HW-CC-Date=20230621T074901Z&HW-CC-Expire=315360000&HW-CC-Sign=8A0965E3B37FBA75D7FB8593DFE5B6537F4EA698467F3D0B5667D8AD360F7ACA"
-            unzip ohcommandline-tools-linux.zip -d $HOME/openharmony
+            curl -o commandline-tools-linux.zip "https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/b1/v3/E6zhv5UFQ2-inIwNJhTN6Q/commandline-tools-linux-2.0.0.2.zip?HW-CC-KV=V1&HW-CC-Date=20230621T074401Z&HW-CC-Expire=315360000&HW-CC-Sign=621224257B02079B1E76C0A56FDF21483400B1E3556213F88DC79BC9BE7D595D"
+            unzip commandline-tools-linux.zip -d $HOME/openharmony
             cd $HOME/openharmony
             ls -l
-            cd oh-command-line-tools/bin
-            ./ohsdkmgr list
-            echo "=============== INSTALL OH SDK ==============="
-            ./ohsdkmgr install ets:9 js:9 native:9 toolchains:9 --accept-license
+            cd command-line-tools/bin
+            ./sdkmgr list
+            echo "=============== INSTALL HOS toolchains:9 ==============="
+            ./sdkmgr install toolchains:9 --accept-license
+            echo "=============== INSTALL OH SDK ets:9 ==============="
+            ./sdkmgr install OpenHarmony/ets:9 --accept-license
+            echo "=============== INSTALL OH SDK js:9 ==============="
+            ./sdkmgr install OpenHarmony/js:9 --accept-license
+            echo "=============== INSTALL OH SDK native:9 ==============="
+            ./sdkmgr install OpenHarmony/native:9 --accept-license
+            echo "=============== INSTALL OH SDK toolchains:9 ==============="
+            ./sdkmgr install OpenHarmony/toolchains:9 --accept-license
             echo "=============== INSTALL OH SDK DONE ==============="
-            ./ohsdkmgr list
+            ./sdkmgr list
           fi
 
       - name: Compile for OpenHarmony
@@ -82,11 +90,12 @@ jobs:
           ls -l
           popd
           echo "=============== SET NPM OH REGISTRY ==============="
-          npm config set @ohos:registry=https://repo.harmonyos.com/npm/
+          echo "registry=https://repo.huaweicloud.com/repository/npm/" > ~/.npmrc
+          echo "@ohos:registry=https://repo.harmonyos.com/npm/" >> ~/.npmrc
+          npm config get @ohos:registry
           echo "=============== UPDATE local.properties ==============="
-          echo "sdk.dir=$HOME/openharmony/sdk" > local.properties
           echo "nodejs.dir=/usr/bin" >> local.properties
-          echo "hwsdk.dir=$HOME/openharmony/sdk" >> local.properties
+          echo "hwsdk.dir=$HOME/openharmony/hwsdk" >> local.properties
           echo "=============== EXECUTE hvigorw ==============="
           ./hvigorw --mode module -p module=entry@default -p product=default -p debuggable=true assembleHap
           echo "=============== EXECUTE hvigorw DONE ==============="
