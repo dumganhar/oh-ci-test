@@ -87,11 +87,11 @@ jobs:
           echo "=============== SET NPM OH REGISTRY ==============="
           npm config set @ohos:registry=https://repo.harmonyos.com/npm/
           echo "=============== UPDATE local.properties ==============="
-          echo "sdk.dir=$(pwd)/sdk/openharmony" > local.properties
-          echo "nodejs.dir=/usr/local/bin" > local.properties
-          echo "hwsdk.dir=$(pwd)/sdk" > local.properties
+          echo "sdk.dir=$HOME/openharmony/sdk" > local.properties
+          echo "nodejs.dir=/usr/bin" >> local.properties
+          echo "hwsdk.dir=$HOME/openharmony/sdk" >> local.properties
           echo "=============== EXECUTE hvigorw ==============="
-          # ./hvigorw --mode module -p module=entry@default -p product=default -p debuggable=true assembleHap
+          ./hvigorw --mode module -p module=entry@default -p product=default -p debuggable=true assembleHap
           echo "=============== EXECUTE hvigorw DONE ==============="
 
           
