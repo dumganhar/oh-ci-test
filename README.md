@@ -19,3 +19,4 @@ For details about how to use the native APIs, see [Using Native APIs in Applicat
 1. This sample can only be run on standard-system devices.
 
 2. The DevEco Studio version used in this sample must be 3.0.0.900 or later.
+Hello
