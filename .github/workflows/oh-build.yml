@@ -77,7 +77,6 @@ jobs:
           node -v
           npm -v
           java --version
-          npm install pnpm@7.30.0
           echo "=============== list files in oh sdk ($HOME/openharmony) ==============="
           pushd $HOME/openharmony
           ls -l
