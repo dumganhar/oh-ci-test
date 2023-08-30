@@ -32,6 +32,10 @@ jobs:
         with:
           node-version: 14
           cache: 'npm'
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - name: Compile for OpenHarmony
         run: |
           which node
