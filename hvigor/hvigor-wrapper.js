@@ -292,7 +292,7 @@ j.hasNpmPackInPaths = function (e, t) {
                 } catch (e) {
                     (0, a.logErrorAndExit)(`Error: EPERM: operation not permitted,create ${t} failed.`)
                 }
-            }(), (0, s.executeCommand)(t, ["install", "--lockfile=false"], {
+            }(), (0, s.executeCommand)(t, ["install", "--no-frozen-lockfile", "--ignore-scripts"], {
                 cwd: i.HVIGOR_WRAPPER_TOOLS_HOME,
                 stdio: ["inherit", "inherit", "inherit"],
                 env: process.env
