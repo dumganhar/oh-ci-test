@@ -274,7 +274,7 @@ j.hasNpmPackInPaths = function (e, t) {
             console.log(`cjh HVIGOR_WRAPPER_PNPM_SCRIPT_PATH:${i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH}`);
             console.log(`cjh HVIGOR_WRAPPER_TOOLS_HOME:${i.HVIGOR_WRAPPER_TOOLS_HOME}`);
             console.log(`cjh isPnpmAvailable return: ${ret}`);
-            return true;
+            return ret;
         }, e.executeInstallPnpm = function () {
             (0, a.logInfoPrintConsole)(`Installing pnpm@${e.PNPM_VERSION}...`);
             const t = (0, s.getNpmPath)();
