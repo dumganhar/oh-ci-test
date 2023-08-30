@@ -253,7 +253,7 @@ j.hasNpmPackInPaths = function (e, t) {
             a = $,
             l = h.default,
             f = u(E.default);
-        e.PNPM_VERSION = "8.7.0";
+        e.PNPM_VERSION = "7.30.0";
         e.checkNpmConifg = function () {
             console.log(`cjh HVIGOR_PROJECT_ROOT_DIR:${i.HVIGOR_PROJECT_ROOT_DIR}`);
             const e = c.resolve(i.HVIGOR_PROJECT_ROOT_DIR, ".npmrc"),
@@ -269,11 +269,10 @@ j.hasNpmPackInPaths = function (e, t) {
         }, e.environmentHandler = function () {
             process.env["npm_config_update-notifier"] = "false"
         }, e.isPnpmAvailable = function () {
-            //cjh const ret = !!o.existsSync(i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH) && (0, s.hasNpmPackInPaths)("pnpm", [i.HVIGOR_WRAPPER_TOOLS_HOME]);
-            // console.log(`cjh HVIGOR_WRAPPER_PNPM_SCRIPT_PATH:${i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH}`);
-            // console.log(`cjh HVIGOR_WRAPPER_TOOLS_HOME:${i.HVIGOR_WRAPPER_TOOLS_HOME}`);
-            // console.log(`cjh isPnpmAvailable return: ${ret}`);
-            // return ret;
+            const ret = !!o.existsSync(i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH) && (0, s.hasNpmPackInPaths)("pnpm", [i.HVIGOR_WRAPPER_TOOLS_HOME]);
+            console.log(`cjh HVIGOR_WRAPPER_PNPM_SCRIPT_PATH:${i.HVIGOR_WRAPPER_PNPM_SCRIPT_PATH}`);
+            console.log(`cjh HVIGOR_WRAPPER_TOOLS_HOME:${i.HVIGOR_WRAPPER_TOOLS_HOME}`);
+            console.log(`cjh isPnpmAvailable return: ${ret}`);
             return true;
         }, e.executeInstallPnpm = function () {
             (0, a.logInfoPrintConsole)(`Installing pnpm@${e.PNPM_VERSION}...`);
