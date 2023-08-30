@@ -99,6 +99,10 @@ jobs:
           echo "=============== UPDATE local.properties ==============="
           echo "nodejs.dir=/usr/bin" >> local.properties
           echo "hwsdk.dir=$HOME/openharmony/hwsdk" >> local.properties
+
+          echo "pnpm -v (in hvigor): "
+          $HOME/.hvigor/wrapper/tools/node_modules/.bin/pnpm -v
+
           echo "=============== EXECUTE hvigorw ==============="
           ./hvigorw --mode module -p module=entry@default -p product=default -p debuggable=true assembleHap
           echo "=============== EXECUTE hvigorw DONE ==============="
