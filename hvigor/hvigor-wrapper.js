@@ -185,6 +185,7 @@ j.hasNpmPackInPaths = function (e, t) {
         const e = process.execPath;
         return W.join(W.dirname(e), z.NPM_TOOL)
     }, j.executeCommand = function (e, t, n) {
+        console.log(`===> cjh, executeCommand: ${e}, ${t}, ${n}`);
         0 !== (0, U.spawnSync)(e, t, n).status && (0, K.logErrorAndExit)(`Error: ${e} ${t} execute failed.See above for details.`)
     }, j.offlinePluginConversion = function (e, t) {
         return t.startsWith("file:") || t.endsWith(".tgz") ? W.resolve(e, z.HVIGOR, t.replace("file:", "")) : t
