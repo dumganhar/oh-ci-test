@@ -30,7 +30,7 @@ jobs:
           echo "{\"name\": \"tests\",\"lockfileVersion\": 3,\"requires\": true,\"packages\": {}}" > package-lock.json
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18
           cache: 'npm'
       - name: Install pnpm
         uses: pnpm/action-setup@v2
