@@ -257,16 +257,16 @@ j.hasNpmPackInPaths = function (e, t) {
         e.PNPM_VERSION = "7.33.6";
         e.checkNpmConifg = function () {
             console.log(`cjh HVIGOR_PROJECT_ROOT_DIR:${i.HVIGOR_PROJECT_ROOT_DIR}`);
-            const e = c.resolve(i.HVIGOR_PROJECT_ROOT_DIR, ".npmrc"),
-                t = c.resolve(f.default.homedir(), ".npmrc");
-            if ((0, s.isFileExists)(e) || (0, s.isFileExists)(t)) return;
-            const n = (0, s.getNpmPath)(),
-                r = (0, l.spawnSync)(n, ["config", "get", "prefix"], {
-                    cwd: i.HVIGOR_PROJECT_ROOT_DIR
-                });
-            if (0 !== r.status || !r.stdout) return void(0, a.logErrorAndExit)("Error: The hvigor depends on the npmrc file. Configure the npmrc file first.");
-            const u = c.resolve(`${r.stdout}`.replace(/[\r\n]/gi, ""), ".npmrc");
-            (0, s.isFileExists)(u) || (0, a.logErrorAndExit)("Error: The hvigor depends on the npmrc file. Configure the npmrc file first.")
+            //cjh const e = c.resolve(i.HVIGOR_PROJECT_ROOT_DIR, ".npmrc"),
+            //     t = c.resolve(f.default.homedir(), ".npmrc");
+            // if ((0, s.isFileExists)(e) || (0, s.isFileExists)(t)) return;
+            // const n = (0, s.getNpmPath)(),
+            //     r = (0, l.spawnSync)(n, ["config", "get", "prefix"], {
+            //         cwd: i.HVIGOR_PROJECT_ROOT_DIR
+            //     });
+            // if (0 !== r.status || !r.stdout) return void(0, a.logErrorAndExit)("Error: The hvigor depends on the npmrc file. Configure the npmrc file first.");
+            // const u = c.resolve(`${r.stdout}`.replace(/[\r\n]/gi, ""), ".npmrc");
+            // (0, s.isFileExists)(u) || (0, a.logErrorAndExit)("Error: The hvigor depends on the npmrc file. Configure the npmrc file first.")
         }, e.environmentHandler = function () {
             process.env["npm_config_update-notifier"] = "false"
         }, e.isPnpmAvailable = function () {
