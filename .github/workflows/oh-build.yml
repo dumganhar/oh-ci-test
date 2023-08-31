@@ -22,7 +22,6 @@ jobs:
         id: oh-sdk-cache-dir-path
         run: |
           echo "cache dir: "
-          yarn cache dir
           echo "dir=$HOME/openharmony" >> $GITHUB_OUTPUT
 
       - name: Output cache dir
