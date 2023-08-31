@@ -100,7 +100,9 @@ jobs:
           echo "hwsdk.dir=$HOME/openharmony/hwsdk" >> local.properties
           echo "=============== EXECUTE hvigorw ==============="
           #./hvigorw --mode module -p module=entry@default -p product=default -p debuggable=true assembleHap -d --no-daemon
-          ./hvigorw clean assembleHap -d
+          ./hvigorw clean -d
+          ./hvigorw --stop-daemon
+          ./hvigorw assembleHap -d --no-daemon
           echo "=============== EXECUTE hvigorw DONE ==============="
 
           
