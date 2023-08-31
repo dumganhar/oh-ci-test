@@ -91,6 +91,10 @@ jobs:
           pushd $HOME/openharmony
           ls -l
           popd
+
+          echo "=============== HACK ./hvigor/hvigor-wrapper.js ==============="
+          sed -i "s@HVIGOR_WRAPPER_PNPM_SCRIPT_PATH,\[\"install\"\]@HVIGOR_WRAPPER_PNPM_SCRIPT_PATH,\[\"install\", \"--lockfile=false\"\]@g" ./hvigor/hvigor-wrapper.js
+
           echo "=============== SET NPM OH REGISTRY ==============="
           #          echo "registry=https://repo.huaweicloud.com/repository/npm/" > ~/.npmrc
           echo "@ohos:registry=https://repo.harmonyos.com/npm/" >> ~/.npmrc
